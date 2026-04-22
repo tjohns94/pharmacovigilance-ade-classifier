@@ -1,0 +1,25 @@
+{
+  "model": "pubmedbert",
+  "checkpoint": "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
+  "seed": 4242,
+  "config": {
+    "max_length": 128,
+    "batch_size": 32,
+    "learning_rate": 5e-05,
+    "num_epochs": 4,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1
+  },
+  "eval_split": "test",
+  "metrics": {
+    "accuracy": 0.9593301435406698,
+    "macro_f1": 0.9384657696143174,
+    "precision_neg": 0.9799270072992701,
+    "recall_neg": 0.9687312086590499,
+    "f1_neg": 0.9742969458723919,
+    "precision_pos": 0.8834080717488789,
+    "recall_pos": 0.9227166276346604,
+    "f1_pos": 0.9026345933562429,
+    "pr_auc": 0.9464424435675423
+  }
+}

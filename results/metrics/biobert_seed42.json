@@ -1,0 +1,25 @@
+{
+  "model": "biobert",
+  "checkpoint": "dmis-lab/biobert-base-cased-v1.2",
+  "seed": 42,
+  "config": {
+    "max_length": 128,
+    "batch_size": 32,
+    "learning_rate": 5e-05,
+    "num_epochs": 4,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1
+  },
+  "eval_split": "test",
+  "metrics": {
+    "accuracy": 0.9583732057416268,
+    "macro_f1": 0.935477231798302,
+    "precision_neg": 0.9712918660287081,
+    "recall_neg": 0.9765484064942874,
+    "f1_neg": 0.9739130434782609,
+    "precision_pos": 0.9066985645933014,
+    "recall_pos": 0.8875878220140515,
+    "f1_pos": 0.8970414201183432,
+    "pr_auc": 0.9515680737842517
+  }
+}

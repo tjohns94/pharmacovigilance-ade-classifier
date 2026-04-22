@@ -1,0 +1,30 @@
+{
+  "dedupe_audit": {
+    "n_total_original": 23516,
+    "n_unique_normalized": 20895,
+    "n_same_label_dupes_dropped": 2621,
+    "n_conflicting_groups": 0,
+    "n_conflicting_instances_dropped": 0,
+    "n_after_dedupe": 20895
+  },
+  "splits": {
+    "train": {
+      "n": 16716,
+      "n_positive": 3417,
+      "n_negative": 13299,
+      "positive_rate": 0.20441493180186648
+    },
+    "val": {
+      "n": 2089,
+      "n_positive": 427,
+      "n_negative": 1662,
+      "positive_rate": 0.20440402106270944
+    },
+    "test": {
+      "n": 2090,
+      "n_positive": 427,
+      "n_negative": 1663,
+      "positive_rate": 0.20430622009569377
+    }
+  }
+}

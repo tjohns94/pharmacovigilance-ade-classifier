@@ -1,0 +1,25 @@
+{
+  "model": "bert-base",
+  "checkpoint": "bert-base-uncased",
+  "seed": 13,
+  "config": {
+    "max_length": 128,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "num_epochs": 4,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1
+  },
+  "eval_split": "test",
+  "metrics": {
+    "accuracy": 0.9478468899521532,
+    "macro_f1": 0.9206892145896195,
+    "precision_neg": 0.9709090909090909,
+    "recall_neg": 0.963319302465424,
+    "f1_neg": 0.9670993057651676,
+    "precision_pos": 0.8613636363636363,
+    "recall_pos": 0.8875878220140515,
+    "f1_pos": 0.8742791234140715,
+    "pr_auc": 0.9361586699590557
+  }
+}

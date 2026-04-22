@@ -1,0 +1,18 @@
+# Colab training dependencies.
+#
+# Upper bounds are set to the next major version to guard against breaking
+# changes; lower bounds are the minimums this project was developed against.
+# For exact replication of a specific run, generate a lockfile from the
+# Colab environment with `pip freeze > requirements-colab.lock` after install
+# and commit that alongside the results.
+
+datasets>=2.14,<3.0
+transformers>=4.46,<5.0
+evaluate>=0.4,<0.5
+torch>=2.1,<3.0
+scikit-learn>=1.3,<2.0
+pandas>=2.1,<3.0
+numpy>=1.26,<3.0
+matplotlib>=3.8,<4.0
+seaborn>=0.13,<1.0
+pyyaml>=6.0,<7.0

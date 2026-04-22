@@ -1,0 +1,52 @@
+# Ablation config. Single source of truth for the experiment.
+# Change values here, not in code.
+
+dataset:
+  name: ade_corpus_v2
+  config: Ade_corpus_v2_classification
+  split_ratios: [0.8, 0.1, 0.1]
+  split_seed: 42
+  splits_path: data/splits/ade_corpus_v2_80_10_10.json
+
+models:
+  - name: bert-base
+    checkpoint: bert-base-uncased
+  - name: biobert
+    checkpoint: dmis-lab/biobert-base-cased-v1.2
+  - name: pubmedbert
+    checkpoint: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
+
+# Final training config. Per-model learning rates are filled in by the sweep
+# cell in notebooks/colab_train.ipynb; any null entry triggers a (re-)sweep.
+training:
+  max_length: 128
+  batch_size: 32
+  learning_rate_per_model:
+    bert-base: 1.0e-4
+    biobert: 5.0e-5
+    pubmedbert: 5.0e-5
+  num_epochs: 4
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  seeds: [13, 42, 123, 2024, 7777, 1000, 2500, 4242, 8675, 31415]
+
+# Per-model LR sweep on val. Verifies that hyperparameters transfer across
+# pretraining backbones rather than assuming a winner from one model applies
+# to all. Each (model x learning_rate) combination is trained once at
+# seeds[0]; the per-model winner on evaluation.primary_metric is written back
+# to training.learning_rate_per_model above. num_epochs is fixed (not swept)
+# at the shared final-ablation value to keep the grid at 3 x 3 = 9 runs.
+sweep:
+  models: [bert-base, biobert, pubmedbert]
+  learning_rates: [2.0e-5, 5.0e-5, 1.0e-4]
+  num_epochs: 4
+
+output:
+  metrics_dir: results/metrics
+  predictions_dir: results/predictions
+  figures_dir: figures
+
+evaluation:
+  bootstrap_iterations: 1000
+  bootstrap_ci: 0.95
+  primary_metric: macro_f1
